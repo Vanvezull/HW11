@@ -6,12 +6,21 @@ import json
 
 
 def load_candidates():
+    """
+    Загрузка полного списка кандидатов из файла json
+    :return:
+    """
     with open("candidates.json", "r", encoding="utf-8") as file:
         candidates = json.load(file)
         return candidates
 
 
 def get_candidate(uid):
+    """
+    Поиск кандидата по ID (функция)
+    :param uid:
+    :return:
+    """
     with open("candidates.json", "r", encoding="utf-8") as file:
         candidates = json.load(file)
         if uid > len(candidates):
@@ -23,6 +32,11 @@ def get_candidate(uid):
 
 
 def get_candidates_by_name(name):
+    """
+    Поиск кандидата по Имени (функция)
+    :param name:
+    :return:
+    """
     with open("candidates.json", "r", encoding="utf-8") as file:
         candidates = json.load(file)
         candidates_list = []
@@ -33,6 +47,11 @@ def get_candidates_by_name(name):
 
 
 def get_candidates_by_skill(skill):
+    """
+    Поиск кандидата по умению (функция)
+    :param skill:
+    :return:
+    """
     with open("candidates.json", "r", encoding="utf-8") as file:
         candidates = json.load(file)
         candidate_skills = []
@@ -42,6 +61,3 @@ def get_candidates_by_skill(skill):
                 #", ".join(skills)
                 candidate_skills.append(candidate)
         return candidate_skills
-
-
-#print(get_candidates_by_skill("go"))
